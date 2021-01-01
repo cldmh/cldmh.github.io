@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Seimo">
+  <meta name="keywords" content="seimo博客">
+  <title>从0开始搭建hexo静态博客（Windows篇） - Seimo博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"seimo.pw","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Seimo博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Seimo博客</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="从0开始搭建hexo静态博客（Windows篇）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-02-10 19:29" pubdate>
+        2020年2月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      684 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">从0开始搭建hexo静态博客（Windows篇）</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年1月1日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>身为可爱的蓝孩子（也可以是铝孩子啦）的你，是不是也想拥有一个和哥哥一样酷的博客呢？今天，我就来教你啦</p>
+</blockquote>
+<h2 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h2><blockquote>
+<ol>
+<li>一个<a target="_blank" rel="noopener" href="http://invcode.yingyun-inv.com/0IosJZ">樱云账号</a>，用于加快对github的访问速度</li>
+<li>一个你自己的域名(也可以没有)</li>
+<li>一双手</li>
+<li>一个脑子</li>
+<li>一台能上网的电脑</li>
+<li>一个github账号</li>
+</ol>
+</blockquote>
+<h2 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h2><p>点击这里<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">下载git</a><br><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win1.png" srcset="/img/loading.gif"></p>
+<p>点击这里<a target="_blank" rel="noopener" href="http://nodejs.cn/download/">下载nodejs</a><br><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win2.png" srcset="/img/loading.gif"><br>下载完这俩玩意之后安装<br>创建一个文件夹，此文件夹非常重要，请妥善保存<br>然后在这个文件夹里面右击你的鼠标，选择“Git Bash Here”<br><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win3.png" srcset="/img/loading.gif"><br>然后你会打开一个新世界<br>在弹出窗口中输入</p>
+<blockquote>
+<p>npm install -g hexo-cli</p>
+</blockquote>
+<p>稍等一段时间即安装成功hexo(如果失败请使用三玖云加速)<br>安装成功后输入</p>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+<p>初始化博客安装</p>
+<p>然后，你的这个文件夹里面会多出来这一堆东西，请务必保存好，这就是你的博客数据</p>
+<p><del>(删库跑路警告）</del></p>
+<p>  <img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win4.png" srcset="/img/loading.gif"></p>
+<p>然后访问github注册一个账号</p>
+<p>已有账号的直接登陆即可，然后新建一个储存库</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win5.png" srcset="/img/loading.gif"></p>
+<p>按如下填写用户名后创建</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win6.png" srcset="/img/loading.gif"></p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win8.png" srcset="/img/loading.gif"></p>
+<p>复制你的仓库git地址，打开你电脑上当时创建的博客文件夹，找到_config.yml文件，打开编辑器</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win7.png" srcset="/img/loading.gif"></p>
+<p>按照图片内容结合个人修改信息</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win12.png" srcset="/img/loading.gif"></p>
+<p>在最后的deploy一栏中，改为以下内容</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repo： 你刚才复制的git仓库地址<br>branch: master</p>
+</blockquote>
+<p>保存退出</p>
+<p>依旧是在博客文件夹右击选择git bash here</p>
+<p>输入</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save<br>hexo g<br>hexo d</p>
+</blockquote>
+<p>然后在弹出窗口输入你的GitHub用户名和密码，当出现</p>
+<blockquote>
+<p>INFO  Deploy done: git</p>
+</blockquote>
+<p>时，即创建成功</p>
+<p>创建后找到github仓库最后一栏设置</p>
+<p>下滑找到Github Page,</p>
+<p>按图操作</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win10.png" srcset="/img/loading.gif"></p>
+<p>然后你可以通过</p>
+<blockquote>
+<p>你的用户名.github.io</p>
+</blockquote>
+<p>访问你的博客 </p>
+<h2 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h2><p>依旧时博客目录右击选择 git bash here</p>
+<p>依次输入</p>
+<blockquote>
+<p>hexo new 文章名称</p>
+</blockquote>
+<p>然后再你的博客文件夹的source_posts文件夹可以找到该文件，使用Markdown语法编辑即可</p>
+<p>然后执行</p>
+<blockquote>
+<p>hexo clean<br>hexo g<br>hexo d</p>
+</blockquote>
+<p>将其重新渲染并部署到github</p>
+<h2 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h2><p>你可以在github仓库页面找到设置，下滑找到github page绑定自己的域名</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win9.png" srcset="/img/loading.gif"></p>
+<p>在你的域名供应商处设置解析</p>
+<p><img src="http://disk.seimo.pw/?/%E5%9B%BE%E5%BA%8A/hexo-win11.png" srcset="/img/loading.gif"></p>
+<p>你还可以访问<a target="_blank" rel="noopener" href="https://hexo.io/themes/">这里</a>下载使用主题，不同主题使用方法各有差异，可以参考主题发布者的介绍</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>遇到不知名报错或者不懂得地方请百度解决</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/02/11/E5%E5%BC%80%E5%8F%91%E8%80%85%E8%B4%A6%E5%8F%B7%E7%99%BD%E5%AB%96%E6%95%99%E7%A8%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">E5开发者账号白嫖教程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <div> <script data-ad-client="ca-pub-5623971898542493" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> </div>
+<a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a><br/> <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1278746593&web_id=1278746593"></script> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
